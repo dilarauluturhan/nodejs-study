@@ -1,3 +1,4 @@
+# Beginner Level Node.js
 - What is Node.js?
 - Node.js setup
 - Node.js REPL
@@ -8,3 +9,5 @@
 - Npm
 - Express Server
 - Node.js Routing
+- EJS Template Engine
+- Working with Dynamic Data
