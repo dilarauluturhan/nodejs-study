@@ -56,6 +56,13 @@ const app = express();
 // EJS'yi tanımladım
 app.set("view engine", "ejs");
 
+// data'yı products'a göndermek istiyorum
+const data = [
+    {id: 1, name: "iphone 14", price: 30000},
+    {id: 2, name: "iphone 15", price: 40000},
+    {id: 3, name: "iphone 16", price: 50000}
+]
+
 // detay sayfası hazırlayacağımız zaman kullandığımız bir routes yapısı
 app.use("/products/:id", function (req, res) {
     res.render("products-detail")
@@ -68,8 +75,11 @@ app.use("/products/:id", function (req, res) {
 
 // en spesifik olanı en yukarı alacağız
 // / olanı en yukarı alırsak sadece homepage'i görürüz
+// res.render'a object olarak data yazdığımda sayfaya eklemiş oldum
 app.use("/products", function (req, res) {
-    res.render("products");
+    res.render("products", {
+        products: data
+    });
 });
 
 // url'den / geldiğinde çağırılacak olan fonksiyon
