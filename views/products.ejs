@@ -17,7 +17,17 @@
 
     <ul>
         <% products.forEach(product => { %>
-            <li><%= product.name %> - <%= product.price %> </li>
+
+            <!-- Örneğin fiyatı 40000'den büyük ve eşit olanı yazdırmak istiyorum -->
+            <% if (product.price >= 40000) { %>
+                <li>
+                    <!-- Dinamik Link Oluşturma -->
+                    <a href="/products/<%= product.id %>">
+                        <%= product.name %> - <%= product.price %>
+                    </a>
+                </li>
+            <% } %>
+
         <% }) %>
     </ul>
 

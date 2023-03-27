@@ -65,7 +65,13 @@ const data = [
 
 // detay sayfası hazırlayacağımız zaman kullandığımız bir routes yapısı
 app.use("/products/:id", function (req, res) {
-    res.render("products-detail")
+
+    // geriye döndürecek olduğum bir product bilgisi oluşturucam
+    // kullanıcının göndermiş olduğu id bilgisine göre bunu döndürücem
+    // nasıl döndürücem? ren.render'a product ekleyerek...
+    const product = data.find(p => p.id == req.params.id);
+
+    res.render("products-detail", product)
     // res.send("products details " + req.params.id);
 });
 

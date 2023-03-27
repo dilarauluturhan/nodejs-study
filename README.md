@@ -12,9 +12,9 @@
 - EJS Template Engine :heavy_check_mark: 
 - Working with Dynamic Data :heavy_check_mark:
 - EJS Working with Loops :heavy_check_mark:
-- EJS Conditional States
-- Creating a Dynamic Link
-- Node.js Product Detail Page
+- EJS Conditional States :heavy_check_mark:
+- Creating a Dynamic Link :heavy_check_mark:
+- Node.js Product Detail Page :heavy_check_mark:
 - Express.js Static Files
 - Design with Node.js
 - Partial Views
