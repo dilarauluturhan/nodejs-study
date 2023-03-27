@@ -1,14 +1,28 @@
 # Beginner Level Node.js
-- What is Node.js?
-- Node.js setup
-- Node.js REPL
-- Node.js HTTP Server
-- Node.js Request & Response
-- Node.js Routing Requests
-- Node.js File System
-- Npm
-- Express Server
-- Node.js Routing
-- EJS Template Engine
-- Working with Dynamic Data
-- EJS Working with Loops
+- What is Node.js? :heavy_check_mark:
+- Node.js setup :heavy_check_mark:
+- Node.js REPL :heavy_check_mark:
+- Node.js HTTP Server :heavy_check_mark:
+- Node.js Request & Response :heavy_check_mark:
+- Node.js Routing Requests :heavy_check_mark:
+- Node.js File System :heavy_check_mark:
+- Npm :heavy_check_mark:
+- Express Server :heavy_check_mark:
+- Node.js Routing :heavy_check_mark:
+- EJS Template Engine :heavy_check_mark: 
+- Working with Dynamic Data :heavy_check_mark:
+- EJS Working with Loops :heavy_check_mark:
+- EJS Conditional States
+- Creating a Dynamic Link
+- Node.js Product Detail Page
+- Express.js Static Files
+- Design with Node.js
+- Partial Views
+- Windows MySQL Setup
+- Addition of Database Table
+- MySQL Connection
+- Listing All Products
+- Async-Await
+- Product Filtering
+- Showing Product Detail
+- Express Router
