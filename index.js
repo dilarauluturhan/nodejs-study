@@ -22,6 +22,13 @@ fs ile dosya oluşturma, okuma, isim değiştirme ve silmeye yarar.
 
 Express.js, node.js ile web sunucusuna gelen istekleri yönetmek, düzenlemek ve yayınlamak için kullanılır.
 
+Bir web proglama dilinde statik dosyalar proje içerisinde direkt yayına alınmaz.
+Mesela img etiketiyle jpeg'i direkt yayınlayamam. Bunu projeye bildirmem gerekiyor.
+Sebebi ise güvenlik açısından.
+Statik klasörlerimi(image,css,javascript gibi) public isimli dosyaya ekliyorum.
+https://expressjs.com/en/starter/static-files.html
+app.use(express.static('public')) kullanıcaz, bu durumda artık public klasörü erişime açılıyor
+
 */
 
 /**********************************************************************/
@@ -90,12 +97,13 @@ const app = express();
 
 // EJS'yi tanımladım
 app.set("view engine", "ejs");
+app.use(express.static('public'));
 
 // data'yı products'a göndermek istiyorum
 const data = [
-    {id: 1, name: "iphone 14", price: 30000},
-    {id: 2, name: "iphone 15", price: 40000},
-    {id: 3, name: "iphone 16", price: 50000}
+    {id: 1, name: "MacBook 2021", price: 30000, imageUrl:"1.jpg"},
+    {id: 2, name: "MacBook 2022", price: 40000, imageUrl:"2.jpg"},
+    {id: 3, name: "MacBook 2023", price: 50000, imageUrl:"3.jpg"}
 ]
 
 // detay sayfası hazırlayacağımız zaman kullandığımız bir routes yapısı
