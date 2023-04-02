@@ -107,21 +107,32 @@ app.use(express.static('node_modules')); // node_modules'ü erişime açtım
 
 // data'yı products'a göndermek istiyorum
 // listeyi bu şekilde yazmak yerine kalıcı bir veritabanında saklamamız gerekiyor bunun için MySQL kullanıyoruz.
-const data = [
-    { id: 1, name: "MacBook 2021", price: 30000, imageUrl: "1.jpg", isHome: true },
-    { id: 2, name: "MacBook 2022", price: 40000, imageUrl: "2.jpg", isHome: false },
-    { id: 3, name: "MacBook 2023", price: 50000, imageUrl: "3.jpg", isHome: true }
-]
+// const data = [
+//     { id: 1, name: "MacBook 2021", price: 30000, imageUrl: "1.jpg", isHome: true },
+//     { id: 2, name: "MacBook 2022", price: 40000, imageUrl: "2.jpg", isHome: false },
+//     { id: 3, name: "MacBook 2023", price: 50000, imageUrl: "3.jpg", isHome: true }
+// ]
 
 // detay sayfası hazırlayacağımız zaman kullandığımız bir routes yapısı
-app.use("/products/:id", function (req, res) {
+app.use("/products/:id", async function (req, res) {
+    // async - await
+    try {
+        const [product, ] = await db.execute("select * from products where id=?", [req.params.id]);
+
+        res.render("products-detail", {
+            product: product[0]
+        });
+
+    } catch (err) {
+        console.log(err);
+    }
 
     // geriye döndürecek olduğum bir product bilgisi oluşturucam
     // kullanıcının göndermiş olduğu id bilgisine göre bunu döndürücem
     // nasıl döndürücem? res.render'a product ekleyerek...
-    const product = data.find(p => p.id == req.params.id);
+    // const product = data.find(p => p.id == req.params.id);
 
-    res.render("products-detail", product)
+    // res.render("products-detail", product)
     // res.send("products details " + req.params.id);
 });
 

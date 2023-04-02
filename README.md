@@ -23,6 +23,6 @@
 - MySQL Connection :heavy_check_mark:
 - Listing All Products :heavy_check_mark:
 - Async-Await :heavy_check_mark:
-- Product Filtering
-- Showing Product Detail
+- Product Filtering :heavy_check_mark:
+- Showing Product Detail :heavy_check_mark:
 - Express Router
