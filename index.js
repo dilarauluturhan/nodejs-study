@@ -96,13 +96,15 @@ const express = require("express");
 // ve app'e atadım.
 // send yerine render yazıyoruz
 const app = express();
+const userRoutes = require("./routes/users");
 
-const db = require("./data/db");
 
 // EJS'yi tanımladım
 app.set("view engine", "ejs");
 app.use(express.static('public'));
 app.use(express.static('node_modules')); // node_modules'ü erişime açtım
+
+app.use(userRoutes);
 
 
 // data'yı products'a göndermek istiyorum
@@ -113,65 +115,6 @@ app.use(express.static('node_modules')); // node_modules'ü erişime açtım
 //     { id: 3, name: "MacBook 2023", price: 50000, imageUrl: "3.jpg", isHome: true }
 // ]
 
-// detay sayfası hazırlayacağımız zaman kullandığımız bir routes yapısı
-app.use("/products/:id", async function (req, res) {
-    // async - await
-    try {
-        const [product, ] = await db.execute("select * from products where id=?", [req.params.id]);
-
-        res.render("products-detail", {
-            product: product[0]
-        });
-
-    } catch (err) {
-        console.log(err);
-    }
-
-    // geriye döndürecek olduğum bir product bilgisi oluşturucam
-    // kullanıcının göndermiş olduğu id bilgisine göre bunu döndürücem
-    // nasıl döndürücem? res.render'a product ekleyerek...
-    // const product = data.find(p => p.id == req.params.id);
-
-    // res.render("products-detail", product)
-    // res.send("products details " + req.params.id);
-});
-
-// app.use("/products/7", function(req, res){
-//     res.send("products 7");
-// });
-
-// en spesifik olanı en yukarı alacağız
-// / olanı en yukarı alırsak sadece homepage'i görürüz
-// res.render'a object olarak data yazdığımda sayfaya eklemiş oldum
-app.use("/products", async function (req, res) {
-    // async - await
-    try {
-        const [products,] = await db.execute("select * from products");
-
-        res.render("products", {
-            products: products
-        });
-
-    } catch (err) {
-        console.log(err);
-    }
-});
-
-// url'den / geldiğinde çağırılacak olan fonksiyon
-app.use("/", async function (req, res) {
-    // async - await
-    try {
-        const [products,] = await db.execute("select * from products");
-
-        res.render("index", {
-            products: products
-        });
-
-    } catch (err) {
-        console.log(err);
-    }
-
-});
 
 app.listen(3000, () => {
     console.log("Listening on port 3000")
