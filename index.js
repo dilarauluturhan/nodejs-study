@@ -102,6 +102,7 @@ app.use(express.static('public'));
 app.use(express.static('node_modules')); // node_modules'ü erişime açtım
 
 // data'yı products'a göndermek istiyorum
+// listeyi bu şekilde yazmak yerine kalıcı bir veritabanında saklamamız gerekiyor bunun için MySQL kullanıyoruz.
 const data = [
     { id: 1, name: "MacBook 2021", price: 30000, imageUrl: "1.jpg", isHome: true },
     { id: 2, name: "MacBook 2022", price: 40000, imageUrl: "2.jpg", isHome: false },

@@ -18,8 +18,8 @@
 - Express.js Static Files :heavy_check_mark:
 - Design with Node.js :heavy_check_mark:
 - Partial Views :heavy_check_mark:
-- Windows MySQL Setup
-- Addition of Database Table
+- Windows MySQL Setup :heavy_check_mark:
+- Addition of Database Table :heavy_check_mark:
 - MySQL Connection
 - Listing All Products
 - Async-Await
