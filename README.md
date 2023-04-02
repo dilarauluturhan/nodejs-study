@@ -20,7 +20,7 @@
 - Partial Views :heavy_check_mark:
 - Windows MySQL Setup :heavy_check_mark:
 - Addition of Database Table :heavy_check_mark:
-- MySQL Connection
+- MySQL Connection :heavy_check_mark:
 - Listing All Products
 - Async-Await
 - Product Filtering

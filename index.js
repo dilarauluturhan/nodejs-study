@@ -40,6 +40,7 @@ app.use(express.static('public')) kullanıcaz, bu durumda artık public klasör�
 // npm list -g -> projenin global paketleri sıralanır
 // npm i ejs -> HTML sayfasına dinamik bir veri göndermek için
 // npm i bootstrap -> bootstrap kütüphanesini ekledik
+// npm i mysql2
 /**********************************************************************/
 
 /*
@@ -100,6 +101,25 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(express.static('public'));
 app.use(express.static('node_modules')); // node_modules'ü erişime açtım
+
+
+const mysql = require("mysql2");
+const config = require("./config");
+
+// buraya yazdığım bilgiler aslında veritabanında kurduğum bilgiler
+let connection = mysql.createConnection(config.db);
+
+connection.connect(function (err) {
+    if (err) {
+        console.log(err);
+    }
+
+    connection.query("select * from products", function (err, result) {
+        console.log(result[1].name);
+    });
+    console.log("MySQL bağlantısı başarılı.");
+})
+
 
 // data'yı products'a göndermek istiyorum
 // listeyi bu şekilde yazmak yerine kalıcı bir veritabanında saklamamız gerekiyor bunun için MySQL kullanıyoruz.
