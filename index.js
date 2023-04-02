@@ -97,28 +97,12 @@ const express = require("express");
 // send yerine render yazıyoruz
 const app = express();
 
+const db = require("./data/db");
+
 // EJS'yi tanımladım
 app.set("view engine", "ejs");
 app.use(express.static('public'));
 app.use(express.static('node_modules')); // node_modules'ü erişime açtım
-
-
-const mysql = require("mysql2");
-const config = require("./config");
-
-// buraya yazdığım bilgiler aslında veritabanında kurduğum bilgiler
-let connection = mysql.createConnection(config.db);
-
-connection.connect(function (err) {
-    if (err) {
-        console.log(err);
-    }
-
-    connection.query("select * from products", function (err, result) {
-        console.log(result[1].name);
-    });
-    console.log("MySQL bağlantısı başarılı.");
-})
 
 
 // data'yı products'a göndermek istiyorum
@@ -156,9 +140,17 @@ app.use("/products", function (req, res) {
 
 // url'den / geldiğinde çağırılacak olan fonksiyon
 app.use("/", function (req, res) {
-    res.render("index", {
-        products: data
-    });
+    db.execute("select * from products")
+        .then(result => {
+            console.log(result[0]);
+
+            res.render("index", {
+                products: result[0]
+            });
+        })
+        .catch(err => console.log(err));
+
+
 });
 
 app.listen(3000, () => {
