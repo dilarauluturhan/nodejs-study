@@ -16,8 +16,8 @@
 - Creating a Dynamic Link :heavy_check_mark:
 - Node.js Product Detail Page :heavy_check_mark:
 - Express.js Static Files :heavy_check_mark:
-- Design with Node.js
-- Partial Views
+- Design with Node.js :heavy_check_mark:
+- Partial Views :heavy_check_mark:
 - Windows MySQL Setup
 - Addition of Database Table
 - MySQL Connection

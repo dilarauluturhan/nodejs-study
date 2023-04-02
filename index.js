@@ -39,6 +39,7 @@ app.use(express.static('public')) kullanıcaz, bu durumda artık public klasör�
 // npm list -> projenin paketleri listelenir
 // npm list -g -> projenin global paketleri sıralanır
 // npm i ejs -> HTML sayfasına dinamik bir veri göndermek için
+// npm i bootstrap -> bootstrap kütüphanesini ekledik
 /**********************************************************************/
 
 /*
@@ -98,12 +99,13 @@ const app = express();
 // EJS'yi tanımladım
 app.set("view engine", "ejs");
 app.use(express.static('public'));
+app.use(express.static('node_modules')); // node_modules'ü erişime açtım
 
 // data'yı products'a göndermek istiyorum
 const data = [
-    {id: 1, name: "MacBook 2021", price: 30000, imageUrl:"1.jpg"},
-    {id: 2, name: "MacBook 2022", price: 40000, imageUrl:"2.jpg"},
-    {id: 3, name: "MacBook 2023", price: 50000, imageUrl:"3.jpg"}
+    { id: 1, name: "MacBook 2021", price: 30000, imageUrl: "1.jpg", isHome: true },
+    { id: 2, name: "MacBook 2022", price: 40000, imageUrl: "2.jpg", isHome: false },
+    { id: 3, name: "MacBook 2023", price: 50000, imageUrl: "3.jpg", isHome: true }
 ]
 
 // detay sayfası hazırlayacağımız zaman kullandığımız bir routes yapısı
@@ -133,7 +135,9 @@ app.use("/products", function (req, res) {
 
 // url'den / geldiğinde çağırılacak olan fonksiyon
 app.use("/", function (req, res) {
-    res.render("index");
+    res.render("index", {
+        products: data
+    });
 });
 
 app.listen(3000, () => {

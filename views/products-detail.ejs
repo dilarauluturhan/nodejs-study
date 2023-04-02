@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
 </head>
+
 <body>
-    <h1><%= name %></h1>
-    <img src="/images/<%= imageUrl %>">
-    <p>fiyat:  <%= price %></p>
+    <%- include('partials/nav') %>
+    <div class="container mt-5">
+        <h1>Products Detail</h1>
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-3">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="/images/<%= imageUrl %>" class="img-fluid">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= name %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= price %>
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum tempora ipsam,
+                                    recusandae non commodi dignissimos aliquid voluptatem iure eum unde, quas et labore
+                                    veniam nobis numquam beatae ut est. Id!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

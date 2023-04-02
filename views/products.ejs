@@ -5,32 +5,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
     <title>Document</title>
 </head>
 
 <body>
-    <h1>Products</h1>
-    <p>
-        <%= products[0].name %>
-        <%= products[0].price %>
-    </p>
+    <%- include('partials/nav') %>
 
-    <ul>
-        <!-- products altındaki her bir elemanı product içine kopyala ve li elemanına yazdır -->
-        <% products.forEach(product => { %>
+    <div class="container mt-5">
+        <h1>Products</h1>
+        <div class="row">
+            <div class="col-12">
+                <% products.forEach(product=> { %>
 
-            <!-- Örneğin fiyatı 40000'den büyük ve eşit olanı yazdırmak istiyorum -->
-            <% if (product.price >= 40000) { %>
-                <li>
-                    <!-- Dinamik Link Oluşturma -->
-                    <a href="/products/<%= product.id %>">
-                        <%= product.name %> - <%= product.price %>
-                    </a>
-                </li>
-            <% } %>
+                    <%- include('partials/product', product) %>
 
-        <% }) %>
-    </ul>
+                    <% }) %>
+            </div>
+        </div>
+    </div>
 
 </body>
 
