@@ -22,7 +22,7 @@
 - Addition of Database Table :heavy_check_mark:
 - MySQL Connection :heavy_check_mark:
 - Listing All Products :heavy_check_mark:
-- Async-Await
+- Async-Await :heavy_check_mark:
 - Product Filtering
 - Showing Product Detail
 - Express Router

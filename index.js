@@ -132,24 +132,33 @@ app.use("/products/:id", function (req, res) {
 // en spesifik olanı en yukarı alacağız
 // / olanı en yukarı alırsak sadece homepage'i görürüz
 // res.render'a object olarak data yazdığımda sayfaya eklemiş oldum
-app.use("/products", function (req, res) {
-    res.render("products", {
-        products: data
-    });
+app.use("/products", async function (req, res) {
+    // async - await
+    try {
+        const [products,] = await db.execute("select * from products");
+
+        res.render("products", {
+            products: products
+        });
+
+    } catch (err) {
+        console.log(err);
+    }
 });
 
 // url'den / geldiğinde çağırılacak olan fonksiyon
-app.use("/", function (req, res) {
-    db.execute("select * from products")
-        .then(result => {
-            console.log(result[0]);
+app.use("/", async function (req, res) {
+    // async - await
+    try {
+        const [products,] = await db.execute("select * from products");
 
-            res.render("index", {
-                products: result[0]
-            });
-        })
-        .catch(err => console.log(err));
+        res.render("index", {
+            products: products
+        });
 
+    } catch (err) {
+        console.log(err);
+    }
 
 });
 
