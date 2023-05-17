@@ -1,4 +1,11 @@
-# Beginner Level Node.js
+<div align="center">
+  <h1 align="center">Beginner Level Node.js Study</h1>
+</div>
+
+## About The Project
+I want to improve myself by learning Node.js so I learned the starting level Node.js. I added the codes and notes I wrote during the study to the project.
+
+## Features
 - What is Node.js? :heavy_check_mark:
 - Node.js setup :heavy_check_mark:
 - Node.js REPL :heavy_check_mark:
@@ -26,3 +33,6 @@
 - Product Filtering :heavy_check_mark:
 - Showing Product Detail :heavy_check_mark:
 - Express Router :heavy_check_mark:
+
+## Contact With
+Dilara Uluturhan - [LinkedIn](https://www.linkedin.com/in/dilarauluturhan/) - dilarauluturhan@outlook.com
