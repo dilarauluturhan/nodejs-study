@@ -34,5 +34,8 @@ I want to improve myself by learning Node.js so I learned the starting level Nod
 - Showing Product Detail :heavy_check_mark:
 - Express Router :heavy_check_mark:
 
+## Lesson Video Link
+[Sadık Turan - Node.js](https://youtu.be/0hZNdTogNo0)
+
 ## Contact With
 Dilara Uluturhan - [LinkedIn](https://www.linkedin.com/in/dilarauluturhan/) - dilarauluturhan@outlook.com
